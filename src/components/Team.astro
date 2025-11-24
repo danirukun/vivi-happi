@@ -1,6 +1,12 @@
 ---
 import TeamMember from './TeamMember.astro';
 
+interface Props {
+	background?: string;
+}
+
+const { background = '' } = Astro.props;
+
 const teamMembers = [
 	{ name: 'danirukun', role: 'Project Lead', xHandle: 'danirukun', xUrl: 'https://x.com/danirukun', color: 'pink' as const },
 	{ name: 'Cloverclub', role: 'Consultant', xHandle: 'cloverclubcos', xUrl: 'https://x.com/cloverclubcos', color: 'purple' as const },

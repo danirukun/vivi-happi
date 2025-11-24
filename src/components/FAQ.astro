@@ -1,6 +1,12 @@
 ---
 import FAQItem from './FAQItem.astro';
 
+interface Props {
+	background?: string;
+}
+
+const { background = 'bg-vivi-pink-200' } = Astro.props;
+
 const faqs = [
 	{
 		question: 'How can I receive my happi?',
@@ -25,7 +31,7 @@ const faqs = [
 ];
 ---
 
-<section class="py-16 px-4 sm:px-6 lg:px-8 bg-vivi-pink-200">
+<section class="py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto">
 		<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">FAQ</h2>
 		<div class="space-y-6">
