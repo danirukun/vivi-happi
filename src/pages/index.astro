@@ -1,5 +1,14 @@
 ---
-
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
+import ProductInfo from '../components/ProductInfo.astro';
+import StayUpdated from '../components/StayUpdated.astro';
+import Timeline from '../components/Timeline.astro';
+import FAQ from '../components/FAQ.astro';
+import Team from '../components/Team.astro';
+import PreorderCTA from '../components/PreorderCTA.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -8,9 +17,23 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="description" content="Preorder your Vivi Happi - A wearable fan coat for Holofes 7. Made to order, worldwide shipping." />
+		<title>Vivi Happi Fes Project - Preorder Now</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-vivi-pink-300 text-gray-900">
+		<Header />
+
+		<main>
+			<Hero />
+			<ProductCarousel />
+			<ProductInfo />
+			<StayUpdated />
+			<Timeline />
+			<FAQ />
+			<Team />
+			<PreorderCTA />
+		</main>
+
+		<Footer />
 	</body>
 </html>

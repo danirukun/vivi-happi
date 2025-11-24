@@ -42,7 +42,11 @@ Vivi secondary purple:
 
 ## Layout
 
+Responsive design. Use this image as placeholder for now: https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public
+
 ## Components
+- Avoid hardcoding styles. Put them into global styles if possible or the Tailwind config.
+- Avoid using the same chunks of markup many times, try to reuse using components.
 
 ## Utilities
 

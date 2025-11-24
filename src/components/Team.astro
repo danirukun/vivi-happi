@@ -1,0 +1,30 @@
+---
+import TeamMember from './TeamMember.astro';
+
+const teamMembers = [
+	{ name: 'danirukun', role: 'Project Lead', xHandle: 'danirukun', xUrl: 'https://x.com/danirukun', color: 'pink' as const },
+	{ name: 'Cloverclub', role: 'Consultant', xHandle: 'cloverclubcos', xUrl: 'https://x.com/cloverclubcos', color: 'purple' as const },
+	{ name: 'ArtElphe', role: 'Artist', xHandle: 'ArtElphe', xUrl: 'https://x.com/ArtElphe', color: 'pink' as const },
+	{ name: 'Zach', role: 'Translations and comms', xHandle: 'slaphappypuppy1', xUrl: 'https://x.com/slaphappypuppy1', color: 'purple' as const },
+	{ name: 'Ghostbyun', role: 'Design', xHandle: 'ghosttbyun', xUrl: 'https://x.com/ghosttbyun', color: 'pink' as const },
+	{ name: '苺大福', role: 'Artist', xHandle: 'il_ichi05', xUrl: 'https://x.com/il_ichi05', color: 'purple' as const },
+];
+---
+
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+	<div class="max-w-6xl mx-auto">
+		<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Team</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{teamMembers.map((member) => (
+				<TeamMember
+					name={member.name}
+					role={member.role}
+					xHandle={member.xHandle}
+					xUrl={member.xUrl}
+					color={member.color}
+				/>
+			))}
+		</div>
+	</div>
+</section>
+
