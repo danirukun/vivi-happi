@@ -11,32 +11,133 @@ import FAQ from '../components/FAQ.astro';
 import Team from '../components/Team.astro';
 import PreorderCTA from '../components/PreorderCTA.astro';
 import Footer from '../components/Footer.astro';
+import Sticker from '../components/Sticker.astro';
+import stickerHearts from '../images/sticker-hearts.png';
+import stickerLipstick from '../images/sticker-lipstick.png';
+import stickerMirror from '../images/sticker-mirror.png';
+import stickerSparkles from '../images/sticker-sparkles.png';
+import stickerCross from '../images/sticker-cross.png';
 ---
 
 <Layout>
 	<Header background="bg-vivi-pink-200/95" />
 
-	<main>
-		<Hero variant="primary">
+	<main class="relative">
+		<Hero variant="primary" class="relative overflow-hidden">
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={120}
+				height={120}
+				rotation={-15}
+				class="top-4 right-4 md:top-8 md:right-8 lg:top-12 lg:right-12"
+			/>
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={100}
+				height={100}
+				rotation={20}
+				class="bottom-4 left-4 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12"
+			/>
 			<HeroCarousel />
 		</Hero>
-		<!-- <ProductCarousel background="bg-vivi-pink-200" /> -->
-		<Hero variant="secondary">
+		<Hero variant="secondary" class="relative overflow-hidden">
+			<Sticker
+				src={stickerLipstick}
+				alt=""
+				width={90}
+				height={90}
+				rotation={-25}
+				class="top-4 left-4 md:top-6 md:left-6"
+			/>
+			<Sticker
+				src={stickerMirror}
+				alt=""
+				width={110}
+				height={110}
+				rotation={15}
+				class="bottom-4 right-4 md:bottom-6 md:right-6"
+			/>
 			<ProductInfo />
 		</Hero>
-		<Hero variant="primary" padding="py-16">
+		<Hero variant="primary" padding="py-16" class="relative overflow-hidden">
+			<Sticker
+				src={stickerCross}
+				alt=""
+				width={80}
+				height={80}
+				rotation={30}
+				class="top-8 right-8 md:top-12 md:right-12"
+			/>
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={100}
+				height={100}
+				rotation={-20}
+				class="bottom-8 left-8 md:bottom-12 md:left-12"
+			/>
 			<StayUpdated />
 		</Hero>
-		<Hero variant="secondary">
+		<Hero variant="secondary" class="relative overflow-hidden">
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={95}
+				height={95}
+				rotation={-10}
+				class="top-6 right-6 md:top-10 md:right-10"
+			/>
 			<FlowbiteTimeline />
 		</Hero>
-		<Hero variant="primary">
+		<Hero variant="primary" class="relative overflow-hidden">
+			<Sticker
+				src={stickerMirror}
+				alt=""
+				width={85}
+				height={85}
+				rotation={25}
+				class="top-4 left-4 md:top-8 md:left-8"
+			/>
+			<Sticker
+				src={stickerLipstick}
+				alt=""
+				width={105}
+				height={105}
+				rotation={-15}
+				class="bottom-4 right-4 md:bottom-8 md:right-8"
+			/>
 			<FAQ />
 		</Hero>
-		<Hero variant="secondary">
+		<Hero variant="secondary" class="relative overflow-hidden">
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={110}
+				height={110}
+				rotation={20}
+				class="top-6 left-6 md:top-10 md:left-10"
+			/>
 			<Team />
 		</Hero>
-		<Hero variant="primary">
+		<Hero variant="primary" class="relative overflow-hidden">
+			<Sticker
+				src={stickerCross}
+				alt=""
+				width={90}
+				height={90}
+				rotation={-30}
+				class="top-4 right-4 md:top-8 md:right-8"
+			/>
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={115}
+				height={115}
+				rotation={18}
+				class="bottom-4 left-4 md:bottom-8 md:left-8"
+			/>
 			<PreorderCTA />
 		</Hero>
 	</main>

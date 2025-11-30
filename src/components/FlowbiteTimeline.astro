@@ -1,30 +1,32 @@
 ---
+const timelineItems = [
+	{
+		title: 'Preorders Open',
+		date: 'January 2025',
+	},
+	{
+		title: 'Production',
+		date: 'February - March 2025',
+	},
+	{
+		title: 'Shipping',
+		date: 'Before Holofes 7th',
+	},
+];
 ---
 
 <div class="max-w-4xl mx-auto">
-	<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Timeline</h2>
+	<h2 class="text-4xl font-bold font-moco text-center mb-12 text-gray-900">Timeline</h2>
 	<div class="flex justify-center">
 		<ol class="relative border-s border-vivi-pink-300">
-			<li class="mb-10 ms-6">
-				<span class="absolute flex items-center justify-center w-6 h-6 bg-vivi-pink-500 rounded-full -start-3 ring-4 ring-white">
-				</span>
-				<h3 class="flex items-center mb-1 text-lg font-semibold text-vivi-pink-700">Preorders Open</h3>
-				<time class="block mb-2 text-sm font-normal leading-none text-gray-700">January 2025</time>
-			</li>
-			<li class="mb-10 ms-6">
-				<span class="absolute flex items-center justify-center w-6 h-6 bg-vivi-purple-500 rounded-full -start-3 ring-4 ring-white">
-				</span>
-				<h3 class="flex items-center mb-1 text-lg font-semibold text-vivi-purple-700">Production</h3>
-				<time class="block mb-2 text-sm font-normal leading-none text-gray-700">February - March 2025</time>
-			</li>
-			<li class="ms-6">
-				<span class="absolute flex items-center justify-center w-6 h-6 bg-vivi-pink-500 rounded-full -start-3 ring-4 ring-white">
-				</span>
-				<h3 class="flex items-center mb-1 text-lg font-semibold text-vivi-pink-700">Shipping</h3>
-				<time class="block mb-2 text-sm font-normal leading-none text-gray-700">Before Holofes 7th</time>
-				<p class="text-sm text-gray-600 mt-1">March 2025</p>
-			</li>
+			{timelineItems.map((item, index) => (
+				<li class="mb-10 ms-6">
+					<span class={`absolute flex items-center justify-center w-6 h-6 ${index % 2 === 0 ? 'bg-vivi-pink-500' : 'bg-vivi-purple-500'} rounded-full -start-3 ring-4 ring-white`}>
+					</span>
+					<h3 class="flex items-center mb-1 text-lg font-semibold text-vivi-pink-700">{item.title}</h3>
+					<time class="block mb-2 text-sm font-normal leading-none text-gray-700">{item.date}</time>
+				</li>
+			))}
 		</ol>
 	</div>
 </div>
-
