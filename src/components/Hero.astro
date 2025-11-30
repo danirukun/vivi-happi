@@ -14,5 +14,7 @@ const dropShadowClass = variant === 'secondary' ? 'drop-shadow-secondary' : '';
 ---
 
 <section class={`${padding} px-4 sm:px-6 lg:px-8 ${bgClass} ${shadowClass} ${dropShadowClass} ${className}`}>
-	<slot />
+	<div class="relative overflow-hidden">
+		<slot />
+	</div>
 </section>
