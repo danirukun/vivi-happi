@@ -1,23 +1,30 @@
 ---
+
+export interface Product {
+	name: string;
+	description: string;
+	variant: 'A' | 'B';
+}
+
+interface Props {
+	description: string;
+	products: Product[];
+}
+
+const { description = 'Something about the project', products = [] } = Astro.props;
 ---
 
 <div class="max-w-3xl mx-auto text-center">
 	<h2 class="text-4xl font-moco text-vivi-pink-600 mb-6">About the project</h2>
 	<div class="space-y-4 text-lg text-gray-700">
-		<p>We as fans have come together to create a special project for Vivi and her debut at holofes 7th! With this beautiful, vibrant and sparkly happi (just like Vivi herself), you can show off your support for her!</p>
+		<p>{description}</p>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-			<div class="p-4 bg-vivi-pink-50 rounded-lg">
-				<p class="font-semibold text-vivi-pink-700">Made to Order</p>
-				<p class="text-sm text-gray-600 mt-1">Manufactured on demand</p>
-			</div>
-			<div class="p-4 bg-vivi-purple-50 rounded-lg">
-				<p class="font-semibold text-vivi-purple-700">Single Size</p>
-				<p class="text-sm text-gray-600 mt-1">One size fits all</p>
-			</div>
-			<div class="p-4 bg-vivi-pink-50 rounded-lg">
-				<p class="font-semibold text-vivi-pink-700">Includes Belt</p>
-				<p class="text-sm text-gray-600 mt-1">Complete set</p>
-			</div>
+			{products.map((product) => (
+				<div class={`p-4 bg-vivi-${product.variant === 'A' ? 'pink' : 'purple'}-50 rounded-lg`}>
+					<p class={`font-semibold text-vivi-${product.variant === 'A' ? 'pink' : 'purple'}-700`}>{product.name}</p>
+					<p class="text-sm text-gray-600 mt-1">{product.description}</p>
+				</div>
+			))}
 		</div>
 	</div>
 </div>

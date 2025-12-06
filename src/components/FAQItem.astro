@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
 	question: string;
 	answer: string;
@@ -7,10 +9,32 @@ interface Props {
 const { question, answer } = Astro.props;
 ---
 
-<details class="bg-white rounded-lg p-6 border-2 border-vivi-purple-200">
-	<summary class="font-semibold text-lg text-gray-900 cursor-pointer">
-		{question}
+<details class="bg-vivi-pink-50 rounded-lg p-6 border-2 border-vivi-purple-200">
+	<summary class="font-semibold text-lg text-gray-900 cursor-pointer list-none">
+		<span class="flex items-center gap-2 text-vivi-pink-600">
+			<Icon name="chevron-down" class="faq-marker text-vivi-pink-600" />
+			{question}
+		</span>
 	</summary>
 	<div class="mt-4 text-gray-700" set:html={answer} />
 </details>
+
+<style>
+	details summary {
+		list-style: none;
+	}
+
+	details summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-marker {
+		transition: transform 0.2s ease;
+		flex-shrink: 0;
+	}
+
+	details[open] .faq-marker {
+		transform: rotate(180deg);
+	}
+</style>
 

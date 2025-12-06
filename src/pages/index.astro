@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
-import ProductCarousel from '../components/ProductCarousel.astro';
 import ProductInfo from '../components/ProductInfo.astro';
 import StayUpdated from '../components/StayUpdated.astro';
 import FlowbiteTimeline from '../components/FlowbiteTimeline.astro';
@@ -17,6 +16,14 @@ import stickerLipstick from '../images/sticker-lipstick.png';
 import stickerMirror from '../images/sticker-mirror.png';
 import stickerSparkles from '../images/sticker-sparkles.png';
 import stickerCross from '../images/sticker-cross.png';
+
+import type { Product } from '../components/ProductInfo.astro';
+
+const products: Product[] = [
+	{ name: 'Made to Order', description: 'Manufactured on demand', variant: 'A' },
+	{ name: 'Single Size', description: 'One size fits all', variant: 'B' },
+	{ name: 'Includes Belt', description: 'Complete set', variant: 'A' },
+];
 ---
 
 <Layout>
@@ -59,37 +66,7 @@ import stickerCross from '../images/sticker-cross.png';
 				rotation={15}
 				class="bottom-4 right-4 md:bottom-6 md:right-6"
 			/>
-			<ProductInfo />
-		</Hero>
-		<Hero variant="primary" padding="py-16">
-			<Sticker
-				src={stickerCross}
-				alt=""
-				width={80}
-				height={80}
-				rotation={30}
-				class="top-8 right-8 md:top-12 md:right-12"
-			/>
-			<Sticker
-				src={stickerSparkles}
-				alt=""
-				width={100}
-				height={100}
-				rotation={-20}
-				class="bottom-8 left-8 md:bottom-12 md:left-12"
-			/>
-			<StayUpdated />
-		</Hero>
-		<Hero variant="secondary">
-			<Sticker
-				src={stickerHearts}
-				alt=""
-				width={95}
-				height={95}
-				rotation={-10}
-				class="top-6 right-6 md:top-10 md:right-10"
-			/>
-			<FlowbiteTimeline />
+			<ProductInfo products={products} description="We as fans have come together to create a special project for Vivi and her debut at holofes 7th! With this beautiful, vibrant and sparkly happi (just like Vivi herself), you can show off your support for her!" />
 		</Hero>
 		<Hero variant="primary">
 			<Sticker
@@ -117,9 +94,39 @@ import stickerCross from '../images/sticker-cross.png';
 				width={110}
 				height={110}
 				rotation={20}
-				class="top-6 left-6 md:top-10 md:left-10"
+				class="top-6 right-6 md:bottom-10 md:right-1/4 xl:top-2/3 xl:right-10"
 			/>
 			<Team />
+		</Hero>
+		<Hero variant="primary" padding="py-16">
+			<Sticker
+				src={stickerCross}
+				alt=""
+				width={80}
+				height={80}
+				rotation={30}
+				class="top-8 right-8 md:right-1/3 xl:right-10"
+			/>
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={100}
+				height={100}
+				rotation={-20}
+				class="bottom-8 left-8 md:bottom-1/4 md:left-12"
+			/>
+			<StayUpdated />
+		</Hero>
+		<Hero variant="secondary">
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={95}
+				height={95}
+				rotation={-10}
+				class="top-6 right-6 md:top-10 md:right-10"
+			/>
+			<FlowbiteTimeline />
 		</Hero>
 		<Hero variant="primary">
 			<Sticker

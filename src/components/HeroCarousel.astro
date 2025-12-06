@@ -1,35 +1,41 @@
 ---
+
+const images = [
+	{
+		src: 'https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public',
+		alt: 'Vivi Happi Design',
+		index: 0,
+	},
+	{
+		src: 'https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public',
+		alt: 'Happi Front View',
+		index: 1,
+	},
+	{
+		src: 'https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public',
+		alt: 'Happi Back View',
+		index: 2,
+	},
+]
 ---
 
 <div class="max-w-4xl mx-auto">
-	<div id="default-carousel" class="relative w-full" data-carousel="slide">
+	<div id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval="3000">
 		<div class="relative h-[640px] overflow-hidden rounded-lg md:h-[768px] bg-vivi-pink-50 border-2 border-vivi-pink-200">
-			<div class="absolute inset-0 duration-700 ease-in-out" data-carousel-item>
+			{images.map((image) => (
+				<div class="absolute inset-0 duration-700 ease-in-out" data-carousel-item>
 				<img
-					src="https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public"
+					src={image.src}
+					alt={image.alt}
 					class="block w-full h-full object-cover"
-					alt="Vivi Happi Design"
 				/>
 			</div>
-			<div class="absolute inset-0 hidden duration-700 ease-in-out" data-carousel-item>
-				<img
-					src="https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public"
-					class="block w-full h-full object-cover"
-					alt="Happi Front View"
-				/>
-			</div>
-			<div class="absolute inset-0 hidden duration-700 ease-in-out" data-carousel-item>
-				<img
-					src="https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public"
-					class="block w-full h-full object-cover"
-					alt="Happi Back View"
-				/>
-			</div>
+			))}
 		</div>
 		<div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-			<button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-			<button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-			<button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+			{images.map((image) => (
+				<button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80" aria-current={image.index === 0 ? "true" : "false"} aria-label={`Slide ${image.index + 1}`} data-carousel-slide-to={image.index}></button>
+			))}
 		</div>
 		<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
 			<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-2 group-focus:ring-white group-focus:outline-none">
@@ -48,6 +54,5 @@
 			</span>
 		</button>
 	</div>
-	<p class="text-center text-gray-600 mt-4 text-sm">Promo Image of Design</p>
+	<p class="text-center text-vivi-purple-500 mt-4 text-sm">Happi Design</p>
 </div>
-
