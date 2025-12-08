@@ -18,11 +18,15 @@ const {
 const keywords = 'hololive 7th fes, super expo 2026, ridin on dreams, kikirara vivi, 綺々羅々ヴィヴィ, vivi happi, hololive merch, happi coat, holofes 7';
 
 let ogImageUrl: string | null = null;
+const ogImageWidth = 1060;
+const ogImageHeight = 1058;
+
 if (ogImage) {
-	const optimizedImage = await getImage({ src: ogImage, width: 1200, height: 630 });
-	ogImageUrl = optimizedImage.src.startsWith('http') 
-		? optimizedImage.src 
-		: new URL(optimizedImage.src, Astro.url.origin).href;
+	const optimizedImage = await getImage({ src: ogImage, width: ogImageWidth, height: ogImageHeight, format: 'png' });
+	const imageSrc = optimizedImage.src;
+	ogImageUrl = imageSrc.startsWith('http') 
+		? imageSrc 
+		: new URL(imageSrc, Astro.url.origin).href;
 }
 ---
 
@@ -65,11 +69,13 @@ if (ogImage) {
 		{ogImageUrl && (
 			<>
 				<meta property="og:type" content="website" />
+				<meta property="og:url" content={Astro.url.href} />
 				<meta property="og:title" content={title} />
 				<meta property="og:description" content={description} />
 				<meta property="og:image" content={ogImageUrl} />
+				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:width" content="1200" />
-				<meta property="og:image:height" content="630" />
+				<meta property="og:image:height" content="1200" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content={title} />
 				<meta name="twitter:description" content={description} />
