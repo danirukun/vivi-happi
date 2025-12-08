@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 import icon from 'astro-icon';
 
@@ -8,5 +9,5 @@ import icon from 'astro-icon';
 export default defineConfig({
     site: 'https://vivi-happi.danirukun.com',
     output: 'static',
-    integrations: [tailwind(), icon()],
+    integrations: [tailwind(), icon(), sitemap()],
 });
