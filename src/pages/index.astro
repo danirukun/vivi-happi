@@ -16,6 +16,7 @@ import stickerLipstick from '../images/sticker-lipstick.png';
 import stickerMirror from '../images/sticker-mirror.png';
 import stickerSparkles from '../images/sticker-sparkles.png';
 import stickerCross from '../images/sticker-cross.png';
+import viviHappiImage from '../images/vivi-happi-preview-final-watermarked.png';
 
 import type { Product } from '../components/ProductInfo.astro';
 
@@ -26,10 +27,11 @@ const products: Product[] = [
 ];
 ---
 
-<Layout>
-	<Header background="bg-vivi-pink-200/95" />
+<Layout ogImage={viviHappiImage}>
+	<Header background="bg-vivi-purple-900/95" />
 
 	<main class="relative">
+		<h1 class="sr-only">Kikirara Vivi (綺々羅々ヴィヴィ) Happi - Hololive 7th Fes Ridin on Dreams & Super Expo 2026</h1>
 		<Hero variant="primary">
 			<Sticker
 				src={stickerSparkles}
@@ -66,7 +68,7 @@ const products: Product[] = [
 				rotation={15}
 				class="bottom-4 right-4 md:bottom-6 md:right-6"
 			/>
-			<ProductInfo products={products} description="We as fans have come together to create a special project for Vivi and her debut at holofes 7th! With this beautiful, vibrant and sparkly happi (just like Vivi herself), you can show off your support for her!" />
+			<ProductInfo products={products} description="We as fans have come together to create a special project for Kikirara Vivi (綺々羅々ヴィヴィ) and her debut at hololive 7th fes - Ridin on Dreams and Super Expo 2026! With this beautiful, vibrant and sparkly happi (just like Vivi herself), you can show off your support for her!" />
 		</Hero>
 		<Hero variant="primary">
 			<Sticker

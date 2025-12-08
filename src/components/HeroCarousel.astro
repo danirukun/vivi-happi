@@ -1,19 +1,21 @@
 ---
+import { Image } from 'astro:assets';
+import viviHappiImage from '../images/vivi-happi-preview-final-watermarked.png';
 
 const images = [
 	{
-		src: 'https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public',
-		alt: 'Vivi Happi Design',
+		image: viviHappiImage,
+		alt: 'Kikirara Vivi (綺々羅々ヴィヴィ) Happi Design for Hololive 7th Fes - Ridin on Dreams',
 		index: 0,
 	},
 	{
-		src: 'https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public',
-		alt: 'Happi Front View',
+		image: viviHappiImage,
+		alt: 'Kikirara Vivi Happi Front View - Super Expo 2026',
 		index: 1,
 	},
 	{
-		src: 'https://imagedelivery.net/593kiqr92vXOIm5c4wZK9A/a4c1bec8-4a9f-4c1c-858c-b44674155e00/public',
-		alt: 'Happi Back View',
+		image: viviHappiImage,
+		alt: 'Kikirara Vivi Happi Back View - Hololive 7th Fes Merchandise',
 		index: 2,
 	},
 ]
@@ -21,13 +23,15 @@ const images = [
 
 <div class="max-w-4xl mx-auto">
 	<div id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval="3000">
-		<div class="relative h-[640px] overflow-hidden rounded-lg md:h-[768px] bg-vivi-pink-50 border-2 border-vivi-pink-200">
+		<div class="relative h-[640px] overflow-hidden rounded-lg md:h-[900px] bg-vivi-pink-50 border-8 border-white drop-shadow-lg" style="filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));">
 			{images.map((image) => (
-				<div class="absolute inset-0 duration-700 ease-in-out" data-carousel-item>
-				<img
-					src={image.src}
+				<div class="absolute inset-0 duration-700 ease-in-out rounded-lg overflow-hidden" data-carousel-item style="clip-path: inset(2px 0 0 0);">
+				<Image
+					src={image.image}
 					alt={image.alt}
-					class="block w-full h-full object-cover"
+					class="w-full h-full object-cover"
+					loading="eager"
+					style="display: block; border: none; outline: none;"
 				/>
 			</div>
 			))}
@@ -54,5 +58,5 @@ const images = [
 			</span>
 		</button>
 	</div>
-	<p class="text-center text-vivi-purple-500 mt-4 text-sm">Happi Design</p>
+	<p class="text-center text-vivi-purple-500 mt-4 text-sm">Happi Design Preview</p>
 </div>

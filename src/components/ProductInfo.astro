@@ -15,17 +15,16 @@ const { description = 'Something about the project', products = [] } = Astro.pro
 ---
 
 <div class="max-w-3xl mx-auto text-center">
-	<h2 class="text-4xl font-moco text-vivi-pink-600 mb-6">About the project</h2>
+	<h2 class="text-4xl font-yuruka text-vivi-pink-600 mb-6">About the project</h2>
 	<div class="space-y-4 text-lg text-gray-700">
 		<p>{description}</p>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
 			{products.map((product) => (
-				<div class={`p-4 bg-vivi-${product.variant === 'A' ? 'pink' : 'purple'}-50 rounded-lg`}>
-					<p class={`font-semibold text-vivi-${product.variant === 'A' ? 'pink' : 'purple'}-700`}>{product.name}</p>
+				<div class={`p-4 rounded-lg ${product.variant === 'A' ? 'bg-vivi-pink-50' : 'bg-vivi-purple-50'}`}>
+					<p class={`font-semibold ${product.variant === 'A' ? 'text-vivi-pink-700' : 'text-vivi-purple-700'}`}>{product.name}</p>
 					<p class="text-sm text-gray-600 mt-1">{product.description}</p>
 				</div>
 			))}
 		</div>
 	</div>
 </div>
-
