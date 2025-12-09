@@ -52,6 +52,13 @@ const ogImageAlt = title;
 				"startDate": "2026-03-01"
 			}
 		})} />
+		<!-- Privacy-friendly analytics by Plausible -->
+		<script async src="https://plausible.io/js/pa-t_V2ZdoTP7VbuYhSjj9w9.js"></script>
+		<script>
+			window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+			plausible.init()
+		</script>
+
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={new URL(Astro.url.pathname, siteUrl).href} />
 		<meta property="og:title" content={title} />
