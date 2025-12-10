@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import HeroCarousel from '../../components/HeroCarousel.astro';
+import ProductInfo from '../../components/ProductInfo.astro';
+import StayUpdated from '../../components/StayUpdated.astro';
+import FlowbiteTimeline from '../../components/FlowbiteTimeline.astro';
+import FAQ from '../../components/FAQ.astro';
+import Team from '../../components/Team.astro';
+import PreorderCTA from '../../components/PreorderCTA.astro';
+import Footer from '../../components/Footer.astro';
+import Sticker from '../../components/Sticker.astro';
+import stickerHearts from '../../images/sticker-hearts.png';
+import stickerLipstick from '../../images/sticker-lipstick.png';
+import stickerMirror from '../../images/sticker-mirror.png';
+import stickerSparkles from '../../images/sticker-sparkles.png';
+import stickerCross from '../../images/sticker-cross.png';
+
+import type { Product } from '../../components/ProductInfo.astro';
+import type { FAQ as FAQType } from '../../components/FAQ.astro';
+import type { TimelineItem as TimelineItemType } from '../../components/FlowbiteTimeline.astro';
+import type { TeamMemberData as TeamMemberDataType } from '../../components/Team.astro';
+
+const products: Product[] = [
+	{ name: '受注生産', description: 'ご注文後に製造', variant: 'A' },
+	{ name: 'フリーサイズ', description: 'どなたでも着用可能', variant: 'B' },
+	{ name: '帯付き', description: 'セット内容', variant: 'A' },
+];
+
+const faqs: FAQType[] = [
+	{
+		question: '法被はどうやって届きますか？',
+		answer: '予約注文は、販売パートナーの<a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer" class="text-vivi-purple-600 hover:underline">Oshi Moshi</a>を通じて受け付けます。世界中どこからでもご注文いただけます！',
+	},
+	{
+		question: '法被のサイズは？',
+		answer: '法被はフリーサイズで、ほとんどの方に着用いただけるデザインです。伝統的な日本の法被スタイルで、服の上からゆったりと羽織っていただけます。',
+	},
+	{
+		question: '売り切れになりますか？',
+		answer: 'ご心配なく！受注生産のため、在庫切れの心配はありません。1月に予約受付を開始し、ご注文ごとに製造いたします。ホロフェス7thまでにお届けできるよう、予約期間中にご注文ください！',
+	},
+	{
+		question: '法被には何が含まれていますか？',
+		answer: '各法被にはお揃いの帯が付属しており、すぐに着用いただけます。セット内容は法被と帯です。',
+	},
+	{
+		question: '注文はいつ届きますか？',
+		answer: 'すべての注文は2026年3月のホロフェス7th前に発送されます。受注生産のため、製造にお時間をいただきますが、イベントに間に合うようにお届けいたします！',
+	},
+];
+
+const timelineItems: TimelineItemType[] = [
+	{ title: '予約受付開始', date: '2026年1月' },
+	{ title: '製造', date: '2026年1月〜2月' },
+	{ title: '発送', date: 'hololive 7th fes前' },
+];
+
+const teamMembers: TeamMemberDataType[] = [
+	{ name: 'danirukun', role: 'プロジェクトリーダー', xHandle: 'danirukun', xUrl: 'https://x.com/danirukun', avatarUrl: 'https://pbs.twimg.com/profile_images/1830747292942356480/lh4BGGpr_400x400.jpg' },
+	{ name: 'Cloverclub', role: 'コンサルタント', xHandle: 'cloverclubcos', xUrl: 'https://x.com/cloverclubcos', avatarUrl: 'https://pbs.twimg.com/profile_images/1922827396857606145/nM9nul4b_400x400.jpg' },
+	{ name: 'Nocte', role: 'コンサルタント', xHandle: 'saikyouticnocte', xUrl: 'https://x.com/saikyouticnocte', avatarUrl: 'https://pbs.twimg.com/profile_images/1971695083251519488/0hRYiDYM_400x400.jpg' },
+	{ name: 'ArtElphe', role: 'イラストレーター', xHandle: 'ArtElphe', xUrl: 'https://x.com/ArtElphe', avatarUrl: 'https://pbs.twimg.com/profile_images/1579927174043553792/n3QhY1WH_400x400.jpg' },
+	{ name: 'Zach', role: '翻訳', xHandle: 'slaphappypuppy1', xUrl: 'https://x.com/slaphappypuppy1', avatarUrl: 'https://pbs.twimg.com/profile_images/1938800423789367297/RkOGJqIP_400x400.jpg' },
+	{ name: 'Ghostbyun', role: 'デザイン', xHandle: 'ghosttbyun', xUrl: 'https://x.com/ghosttbyun', avatarUrl: 'https://pbs.twimg.com/profile_images/1910994752159252480/FPtBZn7A_400x400.jpg' },
+	{ name: '苺大福', role: 'イラストレーター', xHandle: 'il_ichi05', xUrl: 'https://x.com/il_ichi05', avatarUrl: 'https://pbs.twimg.com/profile_images/1910224157746544640/bwgg1i4r_400x400.jpg' },
+	{ name: 'Aisu Asai', role: 'デザイン', xHandle: 'AisuAsai', xUrl: 'https://x.com/AisuAsai', avatarUrl: 'https://pbs.twimg.com/profile_images/1907331163271925761/ooKz6hKA_400x400.jpg' },
+];
+---
+
+<Layout>
+	<Header background="bg-vivi-purple-900/95" />
+
+	<main class="relative">
+		<h1 class="sr-only">Kikirara Vivi (綺々羅々ヴィヴィ) Happi - Hololive 7th Fes Ridin on Dreams & Super Expo 2026</h1>
+		<Hero variant="primary">
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={120}
+				height={120}
+				rotation={-15}
+				class="top-4 right-4 md:top-8 md:right-8 lg:top-12 lg:right-12"
+			/>
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={100}
+				height={100}
+				rotation={20}
+				class="bottom-4 left-4 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12"
+			/>
+			<HeroCarousel />
+		</Hero>
+		<Hero variant="secondary">
+			<Sticker
+				src={stickerLipstick}
+				alt=""
+				width={90}
+				height={90}
+				rotation={-25}
+				class="top-4 left-4 md:top-6 md:left-6"
+			/>
+			<Sticker
+				src={stickerMirror}
+				alt=""
+				width={110}
+				height={110}
+				rotation={15}
+				class="bottom-4 right-4 md:bottom-6 md:right-6"
+			/>
+			<ProductInfo products={products} description="私たちファン有志が、綺々羅々ヴィヴィのhololive 7th fes - Ridin' on DreamsとSuper Expo 2026デビューを記念して、特別なプロジェクトを立ち上げました！ヴィヴィ本人のように美しく、鮮やかで、キラキラ輝くこの法被で、彼女への応援を見せつけましょう！" />
+		</Hero>
+		<Hero variant="primary">
+			<Sticker
+				src={stickerMirror}
+				alt=""
+				width={85}
+				height={85}
+				rotation={25}
+				class="top-4 left-4 md:top-8 md:left-8"
+			/>
+			<Sticker
+				src={stickerLipstick}
+				alt=""
+				width={105}
+				height={105}
+				rotation={-15}
+				class="bottom-4 right-4 md:bottom-8 md:right-8"
+			/>
+			<FAQ faqs={faqs} />
+		</Hero>
+		<Hero variant="secondary">
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={110}
+				height={110}
+				rotation={20}
+				class="top-6 right-6 md:bottom-10 md:right-1/4 xl:top-2/3 xl:right-10"
+			/>
+			<Team members={teamMembers} />
+		</Hero>
+		<Hero variant="primary" padding="py-16">
+			<Sticker
+				src={stickerCross}
+				alt=""
+				width={80}
+				height={80}
+				rotation={30}
+				class="top-8 right-8 md:right-1/3 xl:right-10"
+			/>
+			<Sticker
+				src={stickerSparkles}
+				alt=""
+				width={100}
+				height={100}
+				rotation={-20}
+				class="bottom-8 left-8 md:bottom-1/4 md:left-12"
+			/>
+			<StayUpdated />
+		</Hero>
+		<Hero variant="secondary">
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={95}
+				height={95}
+				rotation={-10}
+				class="top-6 right-6 md:top-10 md:right-10"
+			/>
+			<FlowbiteTimeline items={timelineItems} />
+		</Hero>
+		<Hero variant="primary">
+			<Sticker
+				src={stickerCross}
+				alt=""
+				width={90}
+				height={90}
+				rotation={-30}
+				class="top-4 right-4 md:top-8 md:right-8"
+			/>
+			<Sticker
+				src={stickerHearts}
+				alt=""
+				width={115}
+				height={115}
+				rotation={18}
+				class="bottom-4 left-4 md:bottom-8 md:left-8"
+			/>
+			<PreorderCTA />
+		</Hero>
+	</main>
+
+	<Footer />
+</Layout>

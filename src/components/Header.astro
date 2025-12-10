@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 import logo from '../images/Logo.svg';
 
 interface Props {
@@ -7,18 +9,22 @@ interface Props {
 }
 
 const { background = 'bg-vivi-pink-300/95' } = Astro.props;
+const currentLocale = Astro.currentLocale ?? 'en';
+const isJapanese = currentLocale === 'ja';
 ---
 
 <header class={`sticky top-0 z-50 ${background} backdrop-blur-sm border-b border-vivi-pink-400`}>
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
-			<a href="/" class="flex items-center">
+			<a href={getRelativeLocaleUrl(currentLocale, '')} class="flex items-center">
 				<Image src={logo} alt="Kikirara Vivi (綺々羅々ヴィヴィ) Happi - Hololive 7th Fes" class="h-12 w-auto" />
 			</a>
-			<a
-				href="/preorder"
-				class="px-6 py-2 bg-vivi-pink-500 bg-gradient-to-r from-vivi-pink-500 to-vivi-purple-500 text-white rounded-full font-semibold hover:bg-vivi-pink-700 transition-colors"
-				>Preorder</a>
+			<div class="flex items-center gap-4">
+				<LanguageSwitcher />
+				<a
+					href={getRelativeLocaleUrl(currentLocale, 'preorder')}
+					class="px-6 py-2 bg-vivi-pink-500 bg-gradient-to-r from-vivi-pink-500 to-vivi-purple-500 text-white rounded-full font-semibold hover:bg-vivi-pink-700 transition-colors"
+					>{isJapanese ? '予約' : 'Preorder'}</a>
 			</div>
 		</div>
 	</header>

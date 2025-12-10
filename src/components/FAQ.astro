@@ -1,39 +1,25 @@
 ---
 import FAQItem from './FAQItem.astro';
 
+export interface FAQ {
+	question: string;
+	answer: string;
+}
+
 interface Props {
+	faqs: FAQ[];
+	title?: string;
 	background?: string;
 }
 
-const { background = 'bg-vivi-pink-200' } = Astro.props;
-
-const faqs = [
-	{
-		question: 'How can I receive my happi?',
-		answer: 'Preorders will be available through our distribution partner, <a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer" class="text-vivi-purple-600 hover:underline">Oshi Moshi</a>. We offer worldwide shipping, so you can order from anywhere in the world!',
-	},
-	{
-		question: 'How big is the happi?',
-		answer: 'The happi comes in a single size that is designed to fit most people. It\'s a traditional Japanese happi coat style that is meant to be worn loosely over your clothes.',
-	},
-	{
-		question: 'Will the happi be sold out?',
-		answer: 'No need to worry! Since these are made to order, we won\'t run out of stock. Preorders will be open in January, and each order will be manufactured specifically for you. Make sure to place your order during the preorder period to ensure delivery before Holofes 7th!',
-	},
-	{
-		question: 'What\'s included with the happi?',
-		answer: 'Each happi comes with a matching belt, so you\'ll have everything you need to wear it properly. The complete set includes the happi coat and belt.',
-	},
-	{
-		question: 'When will I receive my order?',
-		answer: 'All orders will be shipped before Holofes 7th in March 2026. Since items are made to order, please allow time for production. We\'ll make sure you receive your happi in time for the event!',
-	},
-];
+const { faqs, title, background = 'bg-vivi-pink-200' } = Astro.props;
+const isJapanese = Astro.currentLocale === 'ja';
+const faqTitle = title ?? (isJapanese ? 'よくある質問' : 'FAQ');
 ---
 
 <section class="py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto">
-		<h2 class="text-4xl font-bold font-yuruka text-center mb-12 text-vivi-purple-600">FAQ</h2>
+		<h2 class="text-4xl font-bold font-yuruka text-center mb-12 text-vivi-purple-600">{faqTitle}</h2>
 		<div class="space-y-6">
 			{faqs.map((faq) => (
 				<FAQItem question={faq.question} answer={faq.answer} />

@@ -18,11 +18,57 @@ import stickerSparkles from '../images/sticker-sparkles.png';
 import stickerCross from '../images/sticker-cross.png';
 
 import type { Product } from '../components/ProductInfo.astro';
+import type { FAQ as FAQType } from '../components/FAQ.astro';
+import type { TimelineItem as TimelineItemType } from '../components/FlowbiteTimeline.astro';
+import type { TeamMemberData as TeamMemberDataType } from '../components/Team.astro';
+
+
+
 
 const products: Product[] = [
 	{ name: 'Made to Order', description: 'Manufactured on demand', variant: 'A' },
 	{ name: 'Single Size', description: 'One size fits all', variant: 'B' },
 	{ name: 'Includes Belt', description: 'Complete set', variant: 'A' },
+];
+
+const faqs: FAQType[] = [
+	{
+		question: 'How can I receive my happi?',
+		answer: 'Preorders will be available through our distribution partner, <a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer" class="text-vivi-purple-600 hover:underline">Oshi Moshi</a>. We offer worldwide shipping, so you can order from anywhere in the world!',
+	},
+	{
+		question: 'How big is the happi?',
+		answer: 'The happi comes in a single size that is designed to fit most people. It\'s a traditional Japanese happi coat style that is meant to be worn loosely over your clothes.',
+	},
+	{
+		question: 'Will the happi be sold out?',
+		answer: 'No need to worry! Since these are made to order, we won\'t run out of stock. Preorders will be open in January, and each order will be manufactured specifically for you. Make sure to place your order during the preorder period to ensure delivery before Holofes 7th!',
+	},
+	{
+		question: 'What\'s included with the happi?',
+		answer: 'Each happi comes with a matching belt, so you\'ll have everything you need to wear it properly. The complete set includes the happi coat and belt.',
+	},
+	{
+		question: 'When will I receive my order?',
+		answer: 'All orders will be shipped before Holofes 7th in March 2026. Since items are made to order, please allow time for production. We\'ll make sure you receive your happi in time for the event!',
+	},
+];
+
+const timelineItems: TimelineItemType[] = [
+	{ title: 'Preorders Open', date: 'January 2026' },
+	{ title: 'Production', date: 'January - February 2026' },
+	{ title: 'Shipping', date: 'Before hololive 7th fes' },
+];
+
+const teamMembers: TeamMemberDataType[] = [
+	{ name: 'danirukun', role: 'Project Lead', xHandle: 'danirukun', xUrl: 'https://x.com/danirukun', avatarUrl: 'https://pbs.twimg.com/profile_images/1830747292942356480/lh4BGGpr_400x400.jpg' },
+	{ name: 'Cloverclub', role: 'Consultant', xHandle: 'cloverclubcos', xUrl: 'https://x.com/cloverclubcos', avatarUrl: 'https://pbs.twimg.com/profile_images/1922827396857606145/nM9nul4b_400x400.jpg' },
+	{ name: 'Nocte', role: 'Consultant', xHandle: 'saikyouticnocte', xUrl: 'https://x.com/saikyouticnocte', avatarUrl: 'https://pbs.twimg.com/profile_images/1971695083251519488/0hRYiDYM_400x400.jpg' },
+	{ name: 'ArtElphe', role: 'Artist', xHandle: 'ArtElphe', xUrl: 'https://x.com/ArtElphe', avatarUrl: 'https://pbs.twimg.com/profile_images/1579927174043553792/n3QhY1WH_400x400.jpg' },
+	{ name: 'Zach', role: 'Translator', xHandle: 'slaphappypuppy1', xUrl: 'https://x.com/slaphappypuppy1', avatarUrl: 'https://pbs.twimg.com/profile_images/1938800423789367297/RkOGJqIP_400x400.jpg' },
+	{ name: 'Ghostbyun', role: 'Design', xHandle: 'ghosttbyun', xUrl: 'https://x.com/ghosttbyun', avatarUrl: 'https://pbs.twimg.com/profile_images/1910994752159252480/FPtBZn7A_400x400.jpg' },
+	{ name: '苺大福', role: 'Artist', xHandle: 'il_ichi05', xUrl: 'https://x.com/il_ichi05', avatarUrl: 'https://pbs.twimg.com/profile_images/1910224157746544640/bwgg1i4r_400x400.jpg' },
+	{ name: 'Aisu Asai', role: 'Design', xHandle: 'AisuAsai', xUrl: 'https://x.com/AisuAsai', avatarUrl: 'https://pbs.twimg.com/profile_images/1907331163271925761/ooKz6hKA_400x400.jpg' },
 ];
 ---
 
@@ -86,7 +132,7 @@ const products: Product[] = [
 				rotation={-15}
 				class="bottom-4 right-4 md:bottom-8 md:right-8"
 			/>
-			<FAQ />
+			<FAQ faqs={faqs} />
 		</Hero>
 		<Hero variant="secondary">
 			<Sticker
@@ -97,7 +143,7 @@ const products: Product[] = [
 				rotation={20}
 				class="top-6 right-6 md:bottom-10 md:right-1/4 xl:top-2/3 xl:right-10"
 			/>
-			<Team />
+			<Team members={teamMembers} />
 		</Hero>
 		<Hero variant="primary" padding="py-16">
 			<Sticker
@@ -127,7 +173,7 @@ const products: Product[] = [
 				rotation={-10}
 				class="top-6 right-6 md:top-10 md:right-10"
 			/>
-			<FlowbiteTimeline />
+			<FlowbiteTimeline items={timelineItems} />
 		</Hero>
 		<Hero variant="primary">
 			<Sticker

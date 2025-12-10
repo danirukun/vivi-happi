@@ -12,10 +12,11 @@ interface Props {
 }
 
 const { description = 'Something about the project', products = [] } = Astro.props;
+const isJapanese = Astro.currentLocale === 'ja';
 ---
 
 <div class="max-w-3xl mx-auto text-center">
-	<h2 class="text-4xl font-yuruka text-vivi-pink-600 mb-6">About the project</h2>
+	<h2 class="text-4xl font-yuruka text-vivi-pink-600 mb-6">{isJapanese ? 'プロジェクトについて' : 'About the project'}</h2>
 	<div class="space-y-4 text-lg text-gray-700">
 		<p>{description}</p>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">

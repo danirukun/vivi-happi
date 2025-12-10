@@ -1,0 +1,30 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const currentLocale = Astro.currentLocale ?? 'en';
+const targetLocale = currentLocale === 'en' ? 'ja' : 'en';
+
+let pathname = Astro.url.pathname;
+
+if (pathname.startsWith('/ja/')) {
+	pathname = pathname.slice(4);
+} else if (pathname === '/ja' || pathname === '/ja/') {
+	pathname = '';
+} else if (pathname === '/') {
+	pathname = '';
+} else if (pathname.startsWith('/')) {
+	pathname = pathname.slice(1);
+}
+
+const targetUrl = getRelativeLocaleUrl(targetLocale, pathname);
+const currentLabel = currentLocale === 'en' ? 'EN' : '日本語';
+const targetLabel = targetLocale === 'en' ? 'EN' : '日本語';
+---
+
+<a
+	href={targetUrl}
+	class="px-4 py-2 text-sm font-semibold text-white hover:text-vivi-pink-200 transition-colors"
+	aria-label={`Switch to ${targetLabel}`}
+>
+	{currentLabel}
+</a>

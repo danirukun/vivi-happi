@@ -10,4 +10,8 @@ export default defineConfig({
     site: 'https://vivi-happi.danirukun.com',
     output: 'static',
     integrations: [tailwind(), icon(), sitemap()],
+    i18n: {
+        locales: ['en', 'ja'],
+        defaultLocale: 'en',
+    },
 });

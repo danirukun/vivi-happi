@@ -1,25 +1,28 @@
 ---
 import TeamMember from './TeamMember.astro';
 
+export interface TeamMemberData {
+	name: string;
+	role: string;
+	xHandle: string;
+	xUrl: string;
+	avatarUrl: string;
+}
+
 interface Props {
+	members: TeamMemberData[];
+	title?: string;
 	background?: string;
 }
 
-const teamMembers = [
-	{ name: 'danirukun', role: 'Project Lead', xHandle: 'danirukun', xUrl: 'https://x.com/danirukun', avatarUrl: 'https://pbs.twimg.com/profile_images/1830747292942356480/lh4BGGpr_400x400.jpg' as const },
-	{ name: 'Cloverclub', role: 'Consultant', xHandle: 'cloverclubcos', xUrl: 'https://x.com/cloverclubcos', avatarUrl: 'https://pbs.twimg.com/profile_images/1922827396857606145/nM9nul4b_400x400.jpg' as const },
-	{ name: 'Nocte', role: 'Consultant', xHandle: 'saikyouticnocte', xUrl: 'https://x.com/saikyouticnocte', avatarUrl: 'https://pbs.twimg.com/profile_images/1971695083251519488/0hRYiDYM_400x400.jpg' as const },
-	{ name: 'ArtElphe', role: 'Artist', xHandle: 'ArtElphe', xUrl: 'https://x.com/ArtElphe', avatarUrl: 'https://pbs.twimg.com/profile_images/1579927174043553792/n3QhY1WH_400x400.jpg' as const },
-	{ name: 'Zach', role: 'Translator', xHandle: 'slaphappypuppy1', xUrl: 'https://x.com/slaphappypuppy1', avatarUrl: 'https://pbs.twimg.com/profile_images/1938800423789367297/RkOGJqIP_400x400.jpg' as const },
-	{ name: 'Ghostbyun', role: 'Design', xHandle: 'ghosttbyun', xUrl: 'https://x.com/ghosttbyun', avatarUrl: 'https://pbs.twimg.com/profile_images/1910994752159252480/FPtBZn7A_400x400.jpg' as const },
-	{ name: '苺大福', role: 'Artist', xHandle: 'il_ichi05', xUrl: 'https://x.com/il_ichi05', avatarUrl: 'https://pbs.twimg.com/profile_images/1910224157746544640/bwgg1i4r_400x400.jpg' as const },
-	{ name: 'Aisu Asai', role: 'Design', xHandle: 'AisuAsai', xUrl: 'https://x.com/AisuAsai', avatarUrl: 'https://pbs.twimg.com/profile_images/1907331163271925761/ooKz6hKA_400x400.jpg' as const },
-];
+const { members: teamMembers, title } = Astro.props;
+const isJapanese = Astro.currentLocale === 'ja';
+const teamTitle = title ?? (isJapanese ? 'チーム' : 'Team');
 ---
 
 <section class="py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-6xl mx-auto">
-		<h2 class="text-4xl font-bold font-yuruka text-center mb-12 text-vivi-pink-600">Team</h2>
+		<h2 class="text-4xl font-bold font-yuruka text-center mb-12 text-vivi-pink-600">{teamTitle}</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			{teamMembers.map((member, index) => (
 				<TeamMember

@@ -1,22 +1,21 @@
 ---
-const timelineItems = [
-	{
-		title: 'Preorders Open',
-		date: 'January 2026',
-	},
-	{
-		title: 'Production',
-		date: 'January - February 2026',
-	},
-	{
-		title: 'Shipping',
-		date: 'Before hololive 7th fes',
-	},
-];
+export interface TimelineItem {
+	title: string;
+	date: string;
+}
+
+interface Props {
+	items: TimelineItem[];
+	title?: string;
+}
+
+const { items: timelineItems, title } = Astro.props;
+const isJapanese = Astro.currentLocale === 'ja';
+const timelineTitle = title ?? (isJapanese ? 'スケジュール' : 'Timeline');
 ---
 
 <div class="max-w-4xl mx-auto">
-	<h2 class="text-4xl font-bold font-yuruka text-center mb-12 text-vivi-pink-600">Timeline</h2>
+	<h2 class="text-4xl font-bold font-yuruka text-center mb-12 text-vivi-pink-600">{timelineTitle}</h2>
 	<div class="flex justify-center">
 		<ol class="relative border-s border-vivi-pink-300">
 			{timelineItems.map((item, index) => (

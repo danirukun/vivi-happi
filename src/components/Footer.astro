@@ -1,17 +1,21 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const currentLocale = Astro.currentLocale ?? 'en';
+const isJapanese = currentLocale === 'ja';
 ---
 
 <footer class="bg-gray-900 text-gray-400 py-8 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto text-center space-y-2">
 		<p class="text-sm">© 2025 Vivi Happi Fes Project</p>
 		<p class="text-sm">
-			Distributed by <a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer" class="text-vivi-pink-400 hover:text-vivi-pink-300">Oshi Moshi</a>
+			{isJapanese ? '販売：' : 'Distributed by '}<a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer" class="text-vivi-pink-400 hover:text-vivi-pink-300">Oshi Moshi</a>
 		</p>
 		<p class="text-sm">
-			This project is not affiliated with COVER Corp. or hololive production.
+			{isJapanese ? 'このプロジェクトはカバー株式会社およびホロライブプロダクションとは関係ありません。' : 'This project is not affiliated with COVER Corp. or hololive production.'}
 		</p>
 		<p class="text-sm pt-2">
-			<a href="/privacy" class="text-vivi-pink-400 hover:text-vivi-pink-300 underline">Privacy Policy</a>
+			<a href={getRelativeLocaleUrl(currentLocale, 'privacy')} class="text-vivi-pink-400 hover:text-vivi-pink-300 underline">{isJapanese ? 'プライバシーポリシー' : 'Privacy Policy'}</a>
 		</p>
 	</div>
 </footer>
