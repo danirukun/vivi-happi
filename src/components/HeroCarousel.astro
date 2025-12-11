@@ -1,34 +1,42 @@
 ---
 import { Image } from 'astro:assets';
-import viviHappiImage from '../images/vivi-happi-preview-final-watermarked.png';
+import viviHappiImage from '../images/vivi-set-watermarked.png';
+import viviHappiImageFront from '../images/vivi-front-watermarked.png';
+import viviHappiImageBack from '../images/vivi-back-watermarked.png';
+import viviHappiImageBelt from '../images/vivi-belt-watermarked.png';
 
 const images = [
 	{
 		image: viviHappiImage,
-		alt: 'Kikirara Vivi (綺々羅々ヴィヴィ) Happi Design for Hololive 7th Fes - Ridin on Dreams',
+		alt: 'Kikirara Vivi (綺々羅々ヴィヴィ) Happi Design for hololive 7th Fes - Ridin on Dreams',
 		index: 0,
 	},
 	{
-		image: viviHappiImage,
+		image: viviHappiImageFront,
 		alt: 'Kikirara Vivi Happi Front View - Super Expo 2026',
 		index: 1,
 	},
 	{
-		image: viviHappiImage,
-		alt: 'Kikirara Vivi Happi Back View - Hololive 7th Fes Merchandise',
+		image: viviHappiImageBack,
+		alt: 'Kikirara Vivi Happi Back View - hololive 7th Fes Merchandise',
 		index: 2,
+	},
+	{
+		image: viviHappiImageBelt,
+		alt: 'Kikirara Vivi Happi Belt - hololive 7th Fes Merchandise',
+		index: 3,
 	},
 ]
 ---
 
 <div class="max-w-4xl mx-auto">
-	<div id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval="3000">
-		<div class="relative h-[640px] overflow-hidden rounded-lg md:h-[900px] bg-vivi-pink-50 border-8 border-white drop-shadow-lg" style="filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));">
-			{images.map((image) => (
+	<div id="default-carousel" class="relative w-full max-w-[90dvh] mx-auto aspect-square" data-carousel="slide" data-carousel-interval="3000">
+		<div class="relative w-full h-full overflow-hidden rounded-lg bg-vivi-pink-50 border-8 border-white drop-shadow-lg" style="filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));">
+			{images.map(({image, alt}) => (
 				<div class="absolute inset-0 duration-700 ease-in-out rounded-lg overflow-hidden" data-carousel-item style="clip-path: inset(2px 0 0 0);">
 				<Image
-					src={image.image}
-					alt={image.alt}
+					src={image}
+					alt={alt}
 					class="w-full h-full object-cover"
 					loading="eager"
 					style="display: block; border: none; outline: none;"
@@ -37,8 +45,8 @@ const images = [
 			))}
 		</div>
 		<div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-			{images.map((image) => (
-				<button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80" aria-current={image.index === 0 ? "true" : "false"} aria-label={`Slide ${image.index + 1}`} data-carousel-slide-to={image.index}></button>
+			{images.map(({index}) => (
+				<button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80" aria-current={index === 0 ? "true" : "false"} aria-label={`Slide ${index + 1}`} data-carousel-slide-to={index}></button>
 			))}
 		</div>
 		<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>

@@ -3,18 +3,20 @@ interface Props {
 	variant?: 'primary' | 'secondary';
 	background?: string;
 	padding?: string;
+	height?: string;
 	class?: string;
 }
 
-const { variant = 'primary', background, padding = 'py-12', class: className = '' } = Astro.props;
+const { variant = 'primary', background, padding = 'py-12', height, class: className = '' } = Astro.props;
 const patternClass = variant === 'primary' ? 'bg-pattern-primary' : 'bg-pattern-secondary';
 const bgClass = background || patternClass;
 const shadowClass = variant === 'primary' ? 'shadow-primary' : '';
 const dropShadowClass = variant === 'secondary' ? 'drop-shadow-secondary' : '';
+const heightClass = height ? `${height} flex items-center` : '';
 ---
 
-<section class={`${padding} px-4 sm:px-6 lg:px-8 ${bgClass} ${shadowClass} ${dropShadowClass} ${className}`}>
-	<div class="relative overflow-hidden">
+<section class={`${padding} px-4 sm:px-6 lg:px-8 ${bgClass} ${shadowClass} ${dropShadowClass} ${heightClass} ${className}`}>
+	<div class="relative overflow-hidden w-full">
 		<slot />
 	</div>
 </section>
