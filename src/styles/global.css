@@ -23,7 +23,7 @@
 
 @font-face {
 	font-family: 'Yuruka';
-	src: url('/fonts/fot-yuruka-std.ttf') format('truetype');
+	src: url('/fonts/fot-yuruka-std.otf') format('opentype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
