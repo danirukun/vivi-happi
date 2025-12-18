@@ -33,7 +33,7 @@ const images = [
 	<div id="default-carousel" class="relative w-full max-w-[90dvh] mx-auto aspect-square" data-carousel="slide" data-carousel-interval="3000">
 		<div class="relative w-full h-full overflow-hidden rounded-lg bg-vivi-pink-50 border-8 border-white drop-shadow-lg" style="filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));">
 			{images.map(({image, alt}) => (
-				<div class="absolute inset-0 duration-700 ease-in-out rounded-lg overflow-hidden" data-carousel-item style="clip-path: inset(2px 0 0 0);">
+				<div class="absolute inset-0 duration-700 ease-in-out rounded-lg overflow-hidden" data-carousel-item>
 				<Image
 					src={image}
 					alt={alt}
