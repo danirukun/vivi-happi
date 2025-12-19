@@ -20,7 +20,7 @@ const isJapanese = currentLocale === 'ja';
 		</a>
 		<div class="mt-8">
 			<a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer">
-				<Image src={oshimoshiLogo} alt="Oshi Moshi - Distribution Partner" width={150} height={75} class="mx-auto" />
+				<Image src={oshimoshiLogo} alt={isJapanese ? 'Oshi Moshi（販売パートナー）' : 'Oshi Moshi - Distribution Partner'} width={150} height={75} class="mx-auto" />
 			</a>
 		</div>
 	</div>

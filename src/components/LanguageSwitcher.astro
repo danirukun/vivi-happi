@@ -19,12 +19,16 @@ if (pathname.startsWith('/ja/')) {
 const targetUrl = getRelativeLocaleUrl(targetLocale, pathname);
 const currentLabel = currentLocale === 'en' ? 'EN' : '日本語';
 const targetLabel = targetLocale === 'en' ? 'EN' : '日本語';
+const ariaLabel =
+	currentLocale === 'ja'
+		? (targetLocale === 'en' ? '英語に切り替える' : '日本語に切り替える')
+		: (targetLocale === 'ja' ? 'Switch to Japanese' : 'Switch to English');
 ---
 
 <a
 	href={targetUrl}
 	class="px-4 py-2 text-sm font-semibold text-white hover:text-vivi-pink-200 transition-colors"
-	aria-label={`Switch to ${targetLabel}`}
+	aria-label={ariaLabel}
 >
 	{currentLabel}
 </a>

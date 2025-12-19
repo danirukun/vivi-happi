@@ -15,7 +15,7 @@ const isJapanese = Astro.currentLocale === 'ja';
 			class="px-8 py-3 bg-vivi-purple-900 text-white rounded-full font-semibold hover:bg-vivi-purple-950 transition-colors flex items-center gap-2"
 		>
 			<span>{isJapanese ? 'フォローする' : 'Follow on'}</span>
-			<Image src={xLogoWhite} alt="X Logo" width={16} height={16} class="inline-block align-middle" />
+			<Image src={xLogoWhite} alt={isJapanese ? 'X（旧Twitter）ロゴ' : 'X Logo'} width={16} height={16} class="inline-block align-middle" />
 		</a>
 		<!-- <a
 			href="#signup"

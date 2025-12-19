@@ -17,7 +17,7 @@ const isJapanese = currentLocale === 'ja';
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<a href={getRelativeLocaleUrl(currentLocale, '')} class="flex items-center">
-				<Image src={logo} alt="Kikirara Vivi (綺々羅々ヴィヴィ) Happi - Hololive 7th Fes" class="h-12 w-auto" />
+				<Image src={logo} alt={isJapanese ? '綺々羅々ヴィヴィ 法被 - hololive 7th fes' : 'Kikirara Vivi (綺々羅々ヴィヴィ) Happi - hololive 7th fes'} class="h-12 w-auto" />
 			</a>
 			<div class="flex items-center gap-4">
 				<LanguageSwitcher />
