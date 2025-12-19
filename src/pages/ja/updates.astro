@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+---
+
+<Layout title="アップデート - ヴィヴィ法被プロジェクト" description="ヴィヴィ法被プロジェクトの最新情報。">
+	<Header background="bg-vivi-purple-900/95" />
+	
+	<main>
+		<Hero variant="primary" padding="py-32">
+			<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+				<h1 class="text-4xl md:text-6xl font-bold font-yuruka text-vivi-purple-900 mb-8">Coming Soon!</h1>
+				<p class="text-xl text-vivi-purple-700">最新情報をお届けできるよう準備中です。お楽しみに！</p>
+			</div>
+		</Hero>
+	</main>
+
+	<Footer />
+</Layout>

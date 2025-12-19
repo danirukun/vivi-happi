@@ -16,9 +16,16 @@ const isJapanese = currentLocale === 'ja';
 <header class={`sticky top-0 z-50 ${background} backdrop-blur-sm border-b border-vivi-pink-400`}>
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
-			<a href={getRelativeLocaleUrl(currentLocale, '')} class="flex items-center">
-				<Image src={logo} alt={isJapanese ? '綺々羅々ヴィヴィ 法被 - hololive 7th fes' : 'Kikirara Vivi (綺々羅々ヴィヴィ) Happi - hololive 7th fes'} class="h-12 w-auto" />
-			</a>
+			<div class="flex items-center gap-8">
+				<a href={getRelativeLocaleUrl(currentLocale, '')} class="flex items-center">
+					<Image src={logo} alt={isJapanese ? '綺々羅々ヴィヴィ 法被 - hololive 7th fes' : 'Kikirara Vivi (綺々羅々ヴィヴィ) Happi - hololive 7th fes'} class="h-12 w-auto" />
+				</a>
+				<a
+					href={getRelativeLocaleUrl(currentLocale, 'updates')}
+					class="text-vivi-pink-100 font-semibold hover:text-vivi-pink-400 transition-colors"
+					>{isJapanese ? 'アップデート' : 'Updates'}</a
+				>
+			</div>
 			<div class="flex items-center gap-4">
 				<LanguageSwitcher />
 				<a
