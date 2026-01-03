@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import oshimoshiLogo from '../images/Oshimoshi-Logo.png';
 
 const currentLocale = Astro.currentLocale ?? 'en';
@@ -10,13 +9,15 @@ const isJapanese = currentLocale === 'ja';
 <section id="preorder" class="py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto text-center text-vivi-purple-800">
 		<h2 class="text-4xl font-bold font-yuruka mb-4">{isJapanese ? '予約の準備はできましたか？' : 'Ready to Preorder?'}</h2>
-		<p class="text-xl tracking-wide mb-8 opacity-90">{isJapanese ? '予約受付開始：' : 'Preorders open in '}<span class="font-bold text-vivi-purple-600">{isJapanese ? '2026年1月' : 'January 2026'}</span></p>
+		<p class="text-xl tracking-wide mb-8 opacity-90">{isJapanese ? '予約受付中！' : 'Preorders are now open!'}</p>
 		<a
-			href={getRelativeLocaleUrl(currentLocale, 'preorder')}
-			aria-label={isJapanese ? '更新情報を受け取る' : 'Sign up for preorder updates'}
+			href="https://oshimoshi.shop/"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label={isJapanese ? 'Oshi Moshiで予約する' : 'Order on Oshi Moshi'}
 			class="inline-block px-8 py-4 bg-vivi-purple-900 text-vivi-pink-50 rounded-full font-bold text-lg hover:bg-vivi-purple-800 transition-colors"
 		>
-			{isJapanese ? '更新情報を受け取る' : 'Sign Up for Updates'}
+			{isJapanese ? 'Oshi Moshiで予約する' : 'Order on Oshi Moshi'}
 		</a>
 		<div class="mt-8">
 			<a href="https://oshimoshi.shop/" target="_blank" rel="noopener noreferrer">

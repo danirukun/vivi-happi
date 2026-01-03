@@ -1,0 +1,15 @@
+---
+const currentLocale = Astro.currentLocale ?? 'en';
+const isJapanese = currentLocale === 'ja';
+---
+
+<div class="h-6 md:h-7 lg:h-8 w-full bg-vivi-purple-900 text-center text-white uppercase flex items-center justify-center font-medium leading-none text-[13px] md:text-[14.5px] lg:text-[16px] tracking-wider">
+	<a
+		href="https://oshimoshi.shop/"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="hover:underline"
+	>
+		{isJapanese ? '予約受付中。Oshi Moshiで法被をご注文ください' : 'Preorders are now open. Order your happi now on Oshi Moshi'}
+	</a>
+</div>
